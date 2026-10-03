@@ -1,8 +1,16 @@
 name: notelet
 description: Rich, paged release notes in a bottom sheet for Flutter apps, with list, image and video notes and automatic "seen version" tracking.
 version: 1.0.0
-homepage:
+homepage: https://github.com/KhaleelSH/notelet
 repository: https://github.com/KhaleelSH/notelet
+issue_tracker: https://github.com/KhaleelSH/notelet/issues
+
+topics:
+  - release-notes
+  - changelog
+  - whats-new
+  - bottom-sheet
+  - widget
 
 environment:
   sdk: ^3.13.5

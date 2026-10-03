@@ -1,6 +1,12 @@
-<h3 align="center">Notelet for Flutter</h3>
+<div align="center">
+  <h1>Notelet for Flutter</h1>
+  <p>Flutter package for showing rich release notes in your app</p>
 
-<p align="center">Flutter package for showing rich release notes in your app</p>
+  <p>
+    <a href="https://pub.dev/packages/notelet"><img src="https://img.shields.io/pub/v/notelet.svg?label=pub&color=0175C2" alt="pub version"></a>
+    <a href="https://github.com/KhaleelSH/notelet/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT license"></a>
+  </p>
+</div>
 
 A Flutter port of the [Notelet](https://github.com/mykolaharmash/notelet) SwiftUI package. It shows release notes as
 pages in a bottom sheet, supports list, image and video notes, and remembers which version the user has already seen.
