@@ -77,49 +77,54 @@ class _NoteletSheetContentState extends State<NoteletSheetContent> {
   Widget build(BuildContext context) {
     final isCompact = isNoteletSheetCompact(context);
 
-    return Scaffold(
-      // NoteletSheetRoute paints the sheet's background.
-      backgroundColor: Colors.transparent,
-      // Lets pages scroll under the bottom bar, and adds the bar's height to
-      // their bottom padding.
-      extendBody: true,
-      body: Stack(
-        children: [
-          PageView.builder(
-            controller: _pageController,
-            // Keeps the neighbouring pages built, so the next image or video
-            // starts loading before it's swiped to.
-            allowImplicitScrolling: true,
-            itemCount: widget.items.length,
-            onPageChanged: (page) => setState(() => _currentPage = page),
-            itemBuilder: (context, index) => _NotePage(
-              item: widget.items[index],
-              isCurrent: index == _currentPage,
-              configuration: widget.configuration,
+    // Keeps the app's snack bars out of the sheet. The app's ScaffoldMessenger
+    // shows them on every Scaffold that isn't nested in another one, which
+    // includes this one.
+    return ScaffoldMessenger(
+      child: Scaffold(
+        // NoteletSheetRoute paints the sheet's background.
+        backgroundColor: Colors.transparent,
+        // Lets pages scroll under the bottom bar, and adds the bar's height to
+        // their bottom padding.
+        extendBody: true,
+        body: Stack(
+          children: [
+            PageView.builder(
+              controller: _pageController,
+              // Keeps the neighbouring pages built, so the next image or video
+              // starts loading before it's swiped to.
+              allowImplicitScrolling: true,
+              itemCount: widget.items.length,
+              onPageChanged: (page) => setState(() => _currentPage = page),
+              itemBuilder: (context, index) => _NotePage(
+                item: widget.items[index],
+                isCurrent: index == _currentPage,
+                configuration: widget.configuration,
+              ),
             ),
-          ),
-          // Both the bottom sheet and the centered card drag down to dismiss.
-          const Positioned(
-            top: 5,
-            left: 0,
-            right: 0,
-            child: Center(child: _DragIndicator()),
-          ),
-        ],
-      ),
-      bottomNavigationBar: _BottomBar(
-        pageCount: widget.items.length,
-        currentPage: _currentPage,
-        pageIndicatorLabel: widget.configuration.pageIndicatorLabel(
-          _currentPage + 1,
-          widget.items.length,
+            // Both the bottom sheet and the centered card drag down to dismiss.
+            const Positioned(
+              top: 5,
+              left: 0,
+              right: 0,
+              child: Center(child: _DragIndicator()),
+            ),
+          ],
         ),
-        buttonLabel: _isOnLastPage
-            ? widget.configuration.doneButtonLabel
-            : widget.configuration.nextButtonLabel,
-        accentColor: widget.configuration.accentColor,
-        isCompact: isCompact,
-        onButtonPressed: _onButtonPressed,
+        bottomNavigationBar: _BottomBar(
+          pageCount: widget.items.length,
+          currentPage: _currentPage,
+          pageIndicatorLabel: widget.configuration.pageIndicatorLabel(
+            _currentPage + 1,
+            widget.items.length,
+          ),
+          buttonLabel: _isOnLastPage
+              ? widget.configuration.doneButtonLabel
+              : widget.configuration.nextButtonLabel,
+          accentColor: widget.configuration.accentColor,
+          isCompact: isCompact,
+          onButtonPressed: _onButtonPressed,
+        ),
       ),
     );
   }
