@@ -25,11 +25,6 @@ On Android, release builds need the internet permission to load network images a
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
 
-Notelet is built on [`material_ui`](https://pub.dev/packages/material_ui), the Material library that moved out of the
-Flutter framework. It needs `material_ui`'s `MaterialApp` (or its `Theme` and `MaterialLocalizations`) above it; the
-legacy `MaterialApp` from `package:flutter/material.dart` doesn't provide them. To migrate an app, run
-`dart fix --apply --code=migrate_design_widgets`.
-
 ## Usage
 
 Here is a full usage example to get started quickly. Below are more detailed explanations of how the component works and
