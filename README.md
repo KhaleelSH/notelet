@@ -9,7 +9,7 @@
 </div>
 
 <p align="center">
-  <video src="https://github.com/user-attachments/assets/ff269a3c-d5ba-417f-981d-68e7032a7606" controls muted playsinline height="600px" width="auto"></video>
+  <video src="https://github.com/user-attachments/assets/f06e2c42-75cc-451a-8637-f46be1dc3ddf" controls muted playsinline height="600px" width="auto"></video>
 </p>
 
 A Flutter port of the [Notelet](https://github.com/mykolaharmash/notelet) SwiftUI package. It shows release notes as
