@@ -19,7 +19,7 @@ pages in a bottom sheet, supports list, image and video notes, and remembers whi
 
 ```yaml
 dependencies:
-  notelet: ^1.0.0
+  notelet: ^1.1.0
 ```
 
 On Android, release builds need the internet permission to load network images and videos. Add it to
